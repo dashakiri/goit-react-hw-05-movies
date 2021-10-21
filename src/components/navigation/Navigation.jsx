@@ -1,20 +1,20 @@
-import { NavLink } from "react-router-dom";
+import { Header, StyledNavLink } from "./Navigation.styled";
 
 const Navigation = () => {
-return <div>
-    <NavLink
+return <Header>
+    <StyledNavLink
     exact
     to="/"    
     >
         Home
-    </NavLink>
+    </StyledNavLink>
 
-    <NavLink
+    <StyledNavLink
     to="/movie"
     >
         Movie
-    </NavLink>
-</div>
+    </StyledNavLink>
+</Header>
 };
 
 export default Navigation;
