@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Link, NavLink } from 'react-router-dom';
 
 export const StyledLink = styled(Link)`
+  max-width: 324px;
   display: flex;
   flex-direction: column;
   text-decoration: none;
