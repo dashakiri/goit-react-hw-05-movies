@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
@@ -11,6 +10,10 @@ export const TextDescrContaier = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 export const Image = styled.img`
