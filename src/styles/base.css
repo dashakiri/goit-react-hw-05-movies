@@ -1,0 +1,28 @@
+:root {
+  --primary-background: #121829;
+  --base-black: #000000;
+  --medium-grey: #767e94;
+  --accent-yellow: #ffad49;
+  --accent-purple: #7b6ef6;
+  --title: #ebeef5;
+  --secondary-text-lightgrey: #beb7fb;
+  --image-card-background: rgba(32, 40, 62, 0, 8);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background-color: var(--primary-background);
+  background-image: url('../images/Background.svg');
+}
+
+ul {
+  list-style: none;
+}

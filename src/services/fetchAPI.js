@@ -13,7 +13,7 @@ export default async function fetchAPI(url = '', config = {}) {
 }
 
 export function fetchTrendingMovies() {
-  return fetchAPI(`${BASE_URL}/3/trending/movie/day?api_key=${API_KEY}`);
+  return fetchAPI(`${BASE_URL}/3/trending/movie/day?api_key=${API_KEY}&page=1`);
 }
 
 export function fetchOneMovie(movieId) {
