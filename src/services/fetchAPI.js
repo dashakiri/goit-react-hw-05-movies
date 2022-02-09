@@ -13,11 +13,17 @@ export default async function fetchAPI(url = '', config = {}) {
 }
 
 export function fetchTrendingMovies() {
-  return fetchAPI(`${BASE_URL}/3/trending/movie/day?api_key=${API_KEY}&page=1`);
+  return fetchAPI(`${BASE_URL}/3/movie/popular?api_key=${API_KEY}&page1`);
 }
 
 export function fetchOneMovie(movieId) {
   return fetchAPI(`${BASE_URL}/3/movie/${movieId}?api_key=${API_KEY}`);
+}
+
+export function fetchMovieImages(movieId) {
+  return fetchAPI(
+    `${BASE_URL}/3/movie/${movieId}/images?api_key=${API_KEY}&language=en-US`,
+  );
 }
 
 export function fetchMovieCredits(movieId) {

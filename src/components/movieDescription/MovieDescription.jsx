@@ -1,9 +1,12 @@
 import { useHistory, useLocation } from "react-router-dom";
-import { Button } from "../searchForm/searchForm.styled";
-import { Container, TextDescrContaier, Image, TextWrap } from "./MovieDescription.styled";
-import { StyledLink } from "../navigation/Navigation.styled";
+import { Container, TextDescrContaier, Image, TextWrap, Button, Tagline, Description, DescriptionTitle, CastContainer, StyledLink } from "./MovieDescription.styled";
+import {MovieTitleContainer, MovieTitle, SubTitle} from '../../views/movieView/MovieView.styled';
+import { VoteAverage } from "../../components/movieDescription/MovieDescription.styled";
+import {AiOutlineStar} from "react-icons/ai";
+import { SpanVote } from "../../views/homeView/HomeView.styled";
 
-export default function MovieDescription({title, vote_average, overview, genres, backdrop_path, url}) {
+
+export default function MovieDescription({title, vote_average, overview, genres, poster_path, url, tagline, release_date, runtime}) {
     const history = useHistory();
     const location = useLocation();
         
@@ -13,21 +16,25 @@ export default function MovieDescription({title, vote_average, overview, genres,
     
     return (
     <Container>
-        <Button type="button" onClick={onGoBack}>
-        {location?.state?.from?.label ?? 'Go back'}    
-        </Button>
+        <MovieTitleContainer>
+            <SubTitle>movies</SubTitle>
+            <MovieTitle>{title}</MovieTitle>
+        </MovieTitleContainer>
         <TextDescrContaier>
-           <Image src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`} alt={title}/>
+           <Image src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={title}/>
             <TextWrap>
-            <h2>{title}</h2>
-            <p>User Score: {vote_average}</p>
-            <h3>Overview</h3>
-            <p>{overview}</p>
-            <h3>Genres</h3> 
-            <p>{genres}</p> 
+            <Tagline>{tagline}</Tagline>
+            <Description>{overview}</Description>
+            <VoteAverage className="vote-average"><AiOutlineStar/><SpanVote>{vote_average}</SpanVote></VoteAverage>
+            <DescriptionTitle>Release date</DescriptionTitle>
+            <Description>{release_date}</Description>
+            <DescriptionTitle>Run time</DescriptionTitle>
+            <Description>{runtime} min</Description>
+            <DescriptionTitle>Genres</DescriptionTitle> 
+            <Description>{genres}</Description>
             </TextWrap>
         </TextDescrContaier> 
-        <div>           
+            <CastContainer>     
             <StyledLink to={{
                 pathname: `${url}/cast`,
                 from: {
@@ -40,7 +47,11 @@ export default function MovieDescription({title, vote_average, overview, genres,
                     location
                 }
             }}>Reviews</StyledLink> 
-        </div>
+            </CastContainer>
+        
+        <Button className="vote-average" type="button" onClick={onGoBack}>
+        {location?.state?.from?.label ?? 'Go back'}    
+        </Button>
     </Container>
        
     )

@@ -1,20 +1,34 @@
-import { Header, StyledNavLink } from "./Navigation.styled";
+import { Container } from "../../views/homeView/HomeView.styled";
+import { NavLinks, StyledNavLink, StyledLogo } from "./Navigation.styled";
+import { SiThemoviedatabase } from 'react-icons/si';
 
 const Navigation = () => {
-return <Header>
+return <Container>
+    <NavLinks>
+
+    <StyledLogo
+    exact
+    to="/"    
+    >
+    <SiThemoviedatabase/>   
+    </StyledLogo>
+
+    <div>
     <StyledNavLink
     exact
     to="/"    
     >
-        Home
+        home
     </StyledNavLink>
 
     <StyledNavLink
     to="/movie"
     >
-        Movie
+        movie
     </StyledNavLink>
-</Header>
+    </div>
+    </NavLinks>
+</Container>
 };
 
 export default Navigation;

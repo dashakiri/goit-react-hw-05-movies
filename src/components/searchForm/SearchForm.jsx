@@ -1,4 +1,5 @@
 import { Form, Input, Button } from "./searchForm.styled";
+import {BiSearchAlt2} from 'react-icons/bi';
 
 export default function SearchForm({handleSubmit}) {
     
@@ -19,7 +20,7 @@ export default function SearchForm({handleSubmit}) {
           />
 
             <Button type="submit">
-                Search
+            <BiSearchAlt2/>
             </Button>
         </Form>
     )

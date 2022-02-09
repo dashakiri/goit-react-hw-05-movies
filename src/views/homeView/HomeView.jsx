@@ -21,7 +21,7 @@ export default function HomeView() {
 
     {movies && (
         <MovieList>
-            {movies.map(({title, id, poster_path, vote_average}) =>             
+            {movies.map(({title, id, poster_path, vote_average, release_date}) =>             
             (<MovieItem key={id}
                 to={{
                     pathname: `${url}movie/${id}`,
@@ -35,7 +35,7 @@ export default function HomeView() {
                 <Poster src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title} width="266" height="400"/>
                 <VoteAverage><AiOutlineStar/><SpanVote>{vote_average}</SpanVote></VoteAverage>
                 <MovieTitle>{title}</MovieTitle>
-                <AddToFav><HiOutlinePlus/> Add to my list</AddToFav>
+                <AddToFav>{release_date}</AddToFav>
             </MovieItem>))}
         </MovieList>
     )}

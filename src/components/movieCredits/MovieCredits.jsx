@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchMovieCredits } from "../../services/fetchAPI";
+import { ActorList, Actor, ActorImage, ActorTitle } from "./MovieCredits.styled";
 
 export default function MovieCredits({movieId}) {
     const [credits, setCredits] = useState([]);
@@ -13,13 +14,13 @@ export default function MovieCredits({movieId}) {
     console.log(cast)
 
     return (
-       <ul>
+       <ActorList>
         {cast.map(({name, character, profile_path, id}) => {
-            return <li key={id}>
-                <img src={`https://image.tmdb.org/t/p/w500${profile_path}`} alt={name} width="100" height="125"/>
-                <p>{name}</p>
-                <p>{character}</p>
-            </li>
+            return <Actor key={id}>
+                <ActorImage src={`https://image.tmdb.org/t/p/w500${profile_path}`} alt={name} width="100" height="125"/>
+                <ActorTitle>{name}</ActorTitle>
+                <ActorTitle>{character}</ActorTitle>
+            </Actor>
         })};
-    </ul>)
+    </ActorList>)
 }

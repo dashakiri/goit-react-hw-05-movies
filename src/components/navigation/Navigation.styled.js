@@ -16,9 +16,14 @@ export const StyledNavLink = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
   padding: 12px;
-  font-weight: 500;
-  color: #2a363b;
-  font-size: 18px;
+  font-weight: 600;
+  color: #c3c8d4;
+  font-size: 16px;
+  line-height: 1.5;
+
+  &:hover {
+    color: var(--accent-purple);
+  }
 
   &.active {
     composes: link;
@@ -26,11 +31,18 @@ export const StyledNavLink = styled(NavLink)`
   }
 `;
 
-export const Header = styled.div`
-  widht: 100%;
-  margin: 0 auto;
-  padding: 0 15px;
-  -webkit-box-shadow: 0px -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
-  -moz-box-shadow: 0px -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
-  box-shadow: 0px -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
+export const StyledLogo = styled(NavLink)`
+  display: inline-block;
+  text-decoration: none;
+  // padding: 12px;
+  font-weight: 600;
+  color: #2196f3;
+  font-size: 36px;
+  line-height: 1.5;
+`;
+
+export const NavLinks = styled.div`
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
 `;
