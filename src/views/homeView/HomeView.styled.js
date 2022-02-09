@@ -41,7 +41,6 @@ export const MovieItem = styled(Link)`
 
 export const Poster = styled.img`
   display: inline-block;
-  // margin-bottom: 16px;
   border-radius: 8px;
 `;
 

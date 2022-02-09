@@ -4,7 +4,6 @@ import PageHeading from "../../components/pageHeading/pageHeading";
 import {fetchTrendingMovies} from "../../services/fetchAPI";
 import { MovieList, Container, MovieItem, Poster, MovieTitle, VoteAverage, SpanVote, AddToFav } from './HomeView.styled';
 import {AiOutlineStar} from "react-icons/ai";
-import {HiOutlinePlus} from 'react-icons/hi'
 
 export default function HomeView() {
     const {url} = useRouteMatch();

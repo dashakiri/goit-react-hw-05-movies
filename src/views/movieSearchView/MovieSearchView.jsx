@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useRouteMatch, useHistory, useLocation } from 'react-router-dom';
 import SearchForm from "../../components/searchForm/SearchForm";
 import { fetchMoviesByQuery } from "../../services/fetchAPI";
-import { Container, MovieList } from "../homeView/HomeView.styled";
-import { StyledLink } from "../../components/navigation/Navigation.styled";
+import {AiOutlineStar} from "react-icons/ai";
+import { MovieList, Container, MovieItem, Poster, MovieTitle, VoteAverage, SpanVote, AddToFav } from '../homeView/HomeView.styled';
 
 export default function MoviewSearchView() {
     const [query, setQuery] = useState('');
@@ -40,9 +40,9 @@ export default function MoviewSearchView() {
 
             {result && (
                 <MovieList>
-                {result.map(({title, id, backdrop_path}) =>             
-                (<li key={id}>
-                    <StyledLink to={{
+                {result.map(({title, id, poster_path, release_date, vote_average}) =>             
+                (<MovieItem key={id}
+                     to={{
                         pathname: `${url}/${id}`,
                         state: {
                             from: {location,
@@ -50,14 +50,13 @@ export default function MoviewSearchView() {
                             }
                         }  
                         }}>
-                        <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} alt={title} width="300" height="170"/>
-                        {title}</StyledLink>
-                </li>))}
+                        <Poster src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title} width="266" height="400"/>
+                        <VoteAverage><AiOutlineStar/><SpanVote>{vote_average}</SpanVote></VoteAverage>
+                        <MovieTitle>{title}</MovieTitle>
+                        <AddToFav>{release_date}</AddToFav>
+                </MovieItem>))}
             </MovieList>
             )}
         </Container>
     )
-
 }
-
-// !!!!! state machine
